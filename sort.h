@@ -27,4 +27,6 @@ void bubble_sort(int *array, size_t size);
 void swap(int *x, int *y);
 void print_arr(const int *array, size_t size);
 void _putchar(char c);
+void insertion_sort_list(listint_t **list);
+int getnodeValue(listint_t **list, int idx);
 #endif
