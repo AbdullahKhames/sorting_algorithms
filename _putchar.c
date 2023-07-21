@@ -3,7 +3,6 @@
 /**
  * _putchar - func to print char
  * @c: char
- * @size: size to print
 */
 
 void _putchar(char c)
