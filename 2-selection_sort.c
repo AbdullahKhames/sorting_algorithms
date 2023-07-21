@@ -20,7 +20,6 @@ void selection_sort(int *array, size_t size)
 				tmp = array[j];
 				idx = j;
 			}
-			
 		}
 		if (array[i] != tmp)
 		{
@@ -28,8 +27,5 @@ void selection_sort(int *array, size_t size)
 			array[i] = tmp;
 			print_array(array, size);
 		}
-		
-		
 	}
-	
 }
