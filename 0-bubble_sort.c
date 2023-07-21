@@ -34,3 +34,18 @@ void bubble_sort(int *array, size_t size)
 		}
 	}
 }
+
+/**
+ * swap - function that swaos two numbers
+ * @x: pointer to first number
+ * @y: pointer to second number
+*/
+
+void swap(int *x, int *y)
+{
+	int temp;
+
+	temp = *x;
+	*x = *y;
+	*y = temp;
+}
