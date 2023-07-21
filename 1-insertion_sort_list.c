@@ -1,5 +1,8 @@
 #include "sort.h"
-
+/**
+ * insertion_sort_list - function to implement selection sort with doubly linked lists
+ * @list: list to sort
+*/
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *current;
