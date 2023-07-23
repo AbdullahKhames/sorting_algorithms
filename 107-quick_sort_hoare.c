@@ -19,7 +19,7 @@ void swap3(int *x, int *y)
 /**
  * partition_hoare - function to quick sort wih
  * hoare impl
- * @array: array o be sorted
+ * @arr: array o be sorted
  * @low: most left index
  * @high: most high index
  * @size: size of array
@@ -30,15 +30,13 @@ int partition_hoare(int *arr, int low, int high, const size_t size)
 	int pivot = arr[high];
 	int i = low - 1;
 	int j = high;
-	do
-	{
-		do
-		{
+
+	do {
+		do {
 			i++;
 		} while (arr[i] < pivot);
 
-		do
-		{
+		do {
 			j--;
 		} while (arr[j] > pivot);
 
@@ -66,14 +64,15 @@ int partition_hoare(int *arr, int low, int high, const size_t size)
  * @high: most high index
  * @size: size of array
 */
-void quick_sort_hoare_recur(int *array, int low, int high,const size_t size)
+void quick_sort_hoare_recur(int *array, int low, int high, const size_t size)
 {
 	int j;
+
 	if (low < high)
 	{
 		j = partition_hoare(array, low, high, size);
 		quick_sort_hoare_recur(array, low, j - 1, size);
-		quick_sort_hoare_recur(array, j , high, size);
+		quick_sort_hoare_recur(array, j, high, size);
 	}
 }
 
