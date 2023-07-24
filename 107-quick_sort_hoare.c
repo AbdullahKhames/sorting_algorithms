@@ -45,9 +45,11 @@ int partition_hoare(int *arr, int low, int high, const size_t size)
 		{
 			return (j);
 		}
-		swap3(&arr[i], &arr[j]);
-		print_array(arr, size);
-
+		if (i != j)
+		{
+			swap3(&arr[i], &arr[j]);
+			print_array(arr, size);
+		}
 	}
 }
 
