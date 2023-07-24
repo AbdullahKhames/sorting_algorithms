@@ -27,26 +27,39 @@ void swap3(int *x, int *y)
 */
 int partition_hoare(int *arr, int low, int high, const size_t size)
 {
-	int pivot = arr[high];
-	int i = low - 1;
-	int j = high;
+    int pivot = arr[high];
+    int i = low - 1;
+    int j = high + 1;
 
-	do {
+/* 	do {
 		do {
 			i++;
-		} while (arr[i] < pivot);
-
+		} while (i < high && arr[i] <= pivot);
 		do {
 			j--;
-		} while (arr[j] > pivot);
-
+		} while (j >= low && arr[j] > pivot);
+		
 		if (i < j)
 		{
 			swap3(&arr[i], &arr[j]);
 			print_array(arr, size);
 		}
 
-	} while (i < j);
+	} while (i < j); */
+    while (1) {
+        do {
+            i++;
+        } while (arr[i] < pivot);
+        do {
+            j--;
+        } while (arr[j] > pivot);
+        if (i > j) {
+            return j;
+        }
+        swap3(&arr[i], &arr[j]);
+		print_array(arr, size);
+    }
+/* 	
 
 	if (i != high)
 	{
@@ -54,8 +67,11 @@ int partition_hoare(int *arr, int low, int high, const size_t size)
 		print_array(arr, size);
 	}
 
-	return (i);
+	return (i); */
 }
+	
+
+
 /**
  * quick_sort_hoare_recur - function to quick sort wih
  * hoare impl
@@ -71,8 +87,8 @@ void quick_sort_hoare_recur(int *array, int low, int high, const size_t size)
 	if (low < high)
 	{
 		j = partition_hoare(array, low, high, size);
-		quick_sort_hoare_recur(array, low, j - 1, size);
-		quick_sort_hoare_recur(array, j, high, size);
+		quick_sort_hoare_recur(array, low, j, size);
+		quick_sort_hoare_recur(array, j + 1, high, size);
 	}
 }
 
@@ -84,5 +100,10 @@ void quick_sort_hoare_recur(int *array, int low, int high, const size_t size)
 */
 void quick_sort_hoare(int *array, size_t size)
 {
+	if (!array || size < 2)
+	{
+		return;
+	}
+
 	quick_sort_hoare_recur(array, 0, size - 1, size);
 }
