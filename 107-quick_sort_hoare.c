@@ -27,49 +27,29 @@ void swap3(int *x, int *y)
 */
 int partition_hoare(int *arr, int low, int high, const size_t size)
 {
-    int pivot = arr[high];
-    int i = low - 1;
-    int j = high + 1;
+	int pivot = arr[high];
+	int i = low - 1;
+	int j = high + 1;
 
-/* 	do {
+	while (1)
+	{
 		do {
 			i++;
-		} while (i < high && arr[i] <= pivot);
+		} while (arr[i] < pivot);
+
 		do {
 			j--;
-		} while (j >= low && arr[j] > pivot);
-		
-		if (i < j)
+		} while (arr[j] > pivot);
+
+		if (i > j)
 		{
-			swap3(&arr[i], &arr[j]);
-			print_array(arr, size);
+			return (j);
 		}
-
-	} while (i < j); */
-    while (1) {
-        do {
-            i++;
-        } while (arr[i] < pivot);
-        do {
-            j--;
-        } while (arr[j] > pivot);
-        if (i > j) {
-            return j;
-        }
-        swap3(&arr[i], &arr[j]);
+		swap3(&arr[i], &arr[j]);
 		print_array(arr, size);
-    }
-/* 	
 
-	if (i != high)
-	{
-		swap3(&arr[i], &arr[high]);
-		print_array(arr, size);
 	}
-
-	return (i); */
 }
-	
 
 
 /**
